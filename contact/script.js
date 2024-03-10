@@ -25,11 +25,11 @@ document.getElementById('contact-form').addEventListener('submit', function(even
     event.preventDefault(); // Evitar o comportamento padrão do formulário de enviar uma solicitação de atualização
 
     const formData = {
+        assunto: document.getElementById('subject').value,
+        emaildestinatario: document.getElementById('email').value,
         fullname: document.getElementById('fullname').value,
-        email: document.getElementById('email').value,
-        mobile: document.getElementById('mobile').value,
-        subject: document.getElementById('subject').value,
-        message: document.getElementById('message').value
+        mobile: document.getElementById('mobile').value, // Adicionado para incluir o campo 'mobile'
+        message: document.getElementById('message').value // Alterado de 'mensagem' para 'message'
     };
 
     const requestOptions = {
@@ -40,7 +40,7 @@ document.getElementById('contact-form').addEventListener('submit', function(even
         body: JSON.stringify(formData)
     };
 
-    fetch('http://localhost:5000/submitform', requestOptions)
+    fetch('http://127.0.0.1:5000/enviar_email', requestOptions)
         .then(response => {
             if (!response.ok) {
                 throw new Error('Erro ao enviar o formulário.');
@@ -54,6 +54,3 @@ document.getElementById('contact-form').addEventListener('submit', function(even
             console.error('Erro:', error);
         });
 });
-
-
-
