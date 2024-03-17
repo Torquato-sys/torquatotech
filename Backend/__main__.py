@@ -26,7 +26,7 @@ def enviar_email():
     msg = Message(data['assunto'],
                   sender= os.getenv('EMAIL_USER'), 
                   recipients= [
-                    'mateustorquato98@gmail.com'
+                    'mateustorquato98@proton.me'
                     ])
     msg.body = f"Nome: {data['fullname']}\nAssunto: {data['assunto']}\nEmail: {data['emaildestinatario']}\nTelefone: {data['mobile']}\nMensagem: {data['message']}"
 
